@@ -1,0 +1,120 @@
+version: "3"
+services:
+  chromedriver:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    shm_size: "2g"
+    environment:
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=12
+
+  asos_scrapper:
+    build: .
+    working_dir: /home/app/asos_scrapper
+    command: "scrapy crawl asos -o asos.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  cuyana_scrapper:
+    build: .
+    working_dir: /home/app/cuyana_scrapper
+    command: "scrapy crawl cuyana -o cuyana.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  everlane_scrapper:
+    build: .
+    working_dir: /home/app/everlane_scrapper
+    command: "scrapy crawl everlane -o everlane.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  farfetch_scrapper:
+    build: .
+    working_dir: /home/app/farfetch_scrapper
+    command: "scrapy crawl farfetch -o farfetch.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  fashionnova_scrapper:
+    build: .
+    working_dir: /home/app/fashionnova_scrapper
+    command: "scrapy crawl fashionnova -o fashionnova.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  hm_scrapper:
+    build: .
+    working_dir: /home/app/hm_scrapper
+    command: "scrapy crawl hm -o hm.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  madewell_scrapper:
+    build: .
+    working_dir: /home/app/madewell_scrapper
+    command: "scrapy crawl madewell -o madewell.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  ohpolly_scrapper:
+    build: .
+    working_dir: /home/app/ohpolly_scrapper
+    command: "scrapy crawl ohpolly -o ohpolly.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  princesspolly_scrapper:
+    build: .
+    working_dir: /home/app/princesspolly_scrapper
+    command: "scrapy crawl princesspolly -o princesspolly.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  sezane_scrapper:
+    build: .
+    working_dir: /home/app/sezane_scrapper
+    command: "scrapy crawl sezane -o sezane.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  thereformation_scrapper:
+    build: .
+    working_dir: /home/app/thereformation_scrapper
+    command: "scrapy crawl thereformation -o thereformation.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
+  zara_scrapper:
+    build: .
+    working_dir: /home/app/zara_scrapper
+    command: "scrapy crawl zara -o zara.json"
+    volumes:
+      - /Users/dev/Desktop/scrappers/test:/home/app
+    depends_on:
+      - chromedriver
+
