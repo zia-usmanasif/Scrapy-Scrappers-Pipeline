@@ -7,6 +7,8 @@ from selenium.webdriver.chrome.options import Options
 import re
 import os
 import time
+import sys
+import signal
 from ..items import FarfetchScrapperItem
 
 # Constants
@@ -96,7 +98,36 @@ class FarfetchSpider(scrapy.Spider):
 
     def start_requests(self):
         url = "https://www.farfetch.com/pk/shopping/women/clothing-1/items.aspx"
+        signal.signal(signal.SIGINT, self.handle_interrupt)
         yield scrapy.Request(url=url, callback=self.parse_pages)
+
+    # This method will be called when the spider is closed by SIGINT
+
+    def handle_interrupt(self, signum, frame):
+        self.graceful_terminate()
+        os.kill(os.getpid(), signal.SIGKILL)
+
+    # Helper for interrupt handler
+
+    def graceful_terminate():
+        try:
+            with open('output.json', 'r') as json_file:
+                data = json_file.read()
+
+            data = data.strip()
+            # Remove the trailing comma if it exists
+            if re.search(',', data[-1], re.IGNORECASE):
+                data = data[:-1]
+
+            # Add the closing bracket
+            data += ']' if (not re.search(']',
+                            data[-1], re.IGNORECASE)) else ''
+
+            # Write the modified data back to the file
+            with open('output.json', 'w') as json_file:
+                json_file.write(data)
+        except Exception as e:
+            print(f"Error finishing JSON file: {e}")
 
     def parse_pages(self, response):
         for i in range(1, 200):

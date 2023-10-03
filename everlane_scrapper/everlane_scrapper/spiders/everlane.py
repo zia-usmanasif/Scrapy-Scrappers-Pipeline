@@ -12,6 +12,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import re
 import os
 import time
+import signal
 from ..items import EverlaneScrapperItem
 
 # Constants

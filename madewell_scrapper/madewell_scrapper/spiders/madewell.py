@@ -7,6 +7,7 @@ import re
 from ..items import MadewellScrapperItem
 import os
 import time
+import signal
 
 # Constants
 IMAGE_SETTINGS = "?wid=700&hei=889&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
@@ -77,7 +78,36 @@ class MadewellSpider(scrapy.Spider):
 
     def start_requests(self):
         url = "https://www.madewell.com/womens/clothing"
+        signal.signal(signal.SIGINT, self.handle_interrupt)
         yield scrapy.Request(url=url, callback=self.parse)
+
+    # This method will be called when the spider is closed by SIGINT
+
+    def handle_interrupt(self, signum, frame):
+        self.graceful_terminate()
+        os.kill(os.getpid(), signal.SIGKILL)
+
+    # Helper for interrupt handler
+
+    def graceful_terminate():
+        try:
+            with open('output.json', 'r') as json_file:
+                data = json_file.read()
+
+            data = data.strip()
+            # Remove the trailing comma if it exists
+            if re.search(',', data[-1], re.IGNORECASE):
+                data = data[:-1]
+
+            # Add the closing bracket
+            data += ']' if (not re.search(']',
+                            data[-1], re.IGNORECASE)) else ''
+
+            # Write the modified data back to the file
+            with open('output.json', 'w') as json_file:
+                json_file.write(data)
+        except Exception as e:
+            print(f"Error finishing JSON file: {e}")
 
     def parse(self, response):
         categories = response.xpath(
