@@ -13,7 +13,7 @@ services:
   asos_scrapper:
     build: .
     working_dir: /home/app/asos_scrapper
-    command: "scrapy crawl asos -o asos.json"
+    command: "scrapy crawl asos -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -22,7 +22,7 @@ services:
   cuyana_scrapper:
     build: .
     working_dir: /home/app/cuyana_scrapper
-    command: "scrapy crawl cuyana -o cuyana.json"
+    command: "scrapy crawl cuyana -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -31,7 +31,7 @@ services:
   everlane_scrapper:
     build: .
     working_dir: /home/app/everlane_scrapper
-    command: "scrapy crawl everlane -o everlane.json"
+    command: "scrapy crawl everlane -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -40,7 +40,7 @@ services:
   farfetch_scrapper:
     build: .
     working_dir: /home/app/farfetch_scrapper
-    command: "scrapy crawl farfetch -o farfetch.json"
+    command: "scrapy crawl farfetch -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -49,7 +49,7 @@ services:
   fashionnova_scrapper:
     build: .
     working_dir: /home/app/fashionnova_scrapper
-    command: "scrapy crawl fashionnova -o fashionnova.json"
+    command: "scrapy crawl fashionnova -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -58,7 +58,7 @@ services:
   hm_scrapper:
     build: .
     working_dir: /home/app/hm_scrapper
-    command: "scrapy crawl hm -o hm.json"
+    command: "scrapy crawl hm -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -67,7 +67,7 @@ services:
   madewell_scrapper:
     build: .
     working_dir: /home/app/madewell_scrapper
-    command: "scrapy crawl madewell -o madewell.json"
+    command: "scrapy crawl madewell -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -76,7 +76,7 @@ services:
   ohpolly_scrapper:
     build: .
     working_dir: /home/app/ohpolly_scrapper
-    command: "scrapy crawl ohpolly -o ohpolly.json"
+    command: "scrapy crawl ohpolly -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -85,7 +85,7 @@ services:
   princesspolly_scrapper:
     build: .
     working_dir: /home/app/princesspolly_scrapper
-    command: "scrapy crawl princesspolly -o princesspolly.json"
+    command: "scrapy crawl princesspolly -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -94,7 +94,7 @@ services:
   sezane_scrapper:
     build: .
     working_dir: /home/app/sezane_scrapper
-    command: "scrapy crawl sezane -o sezane.json"
+    command: "scrapy crawl sezane -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -103,7 +103,7 @@ services:
   thereformation_scrapper:
     build: .
     working_dir: /home/app/thereformation_scrapper
-    command: "scrapy crawl thereformation -o thereformation.json"
+    command: "scrapy crawl thereformation -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
@@ -112,7 +112,7 @@ services:
   zara_scrapper:
     build: .
     working_dir: /home/app/zara_scrapper
-    command: "scrapy crawl zara -o zara.json"
+    command: "scrapy crawl zara -o output.json"
     volumes:
       - /Users/dev/Desktop/scrappers/test:/home/app
     depends_on:
