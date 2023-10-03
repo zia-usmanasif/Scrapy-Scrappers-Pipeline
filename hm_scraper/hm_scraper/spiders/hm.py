@@ -98,7 +98,7 @@ class HmSpider(CrawlSpider):
 
     # Helper for interrupt handler
 
-    def graceful_terminate():
+    def graceful_terminate(self):
         try:
             with open('output.json', 'r') as json_file:
                 data = json_file.read()

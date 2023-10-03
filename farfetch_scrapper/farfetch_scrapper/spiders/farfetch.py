@@ -109,7 +109,7 @@ class FarfetchSpider(scrapy.Spider):
 
     # Helper for interrupt handler
 
-    def graceful_terminate():
+    def graceful_terminate(self):
         try:
             with open('output.json', 'r') as json_file:
                 data = json_file.read()
@@ -162,7 +162,7 @@ class FarfetchSpider(scrapy.Spider):
         details_meta = details+fit_meta
 
         top_best_seller = ""
-        colors = response.css("ul._ef6f60 li:nth-child(1)::text").get()
+        colors = response.css("ul._ef6f60 li:nth-child(1)::text").getall()
         if colors:
             colors = colors.split("/")
             colors = [color.strip() for color in colors]
@@ -211,7 +211,7 @@ class FarfetchSpider(scrapy.Spider):
         item["gender"] = gender
         item["meta"] = {}
         item["website_name"] = WEBSITE_NAME
-        if not in_disallowed_categories(name, url, categories) and categories and sizes:
+        if not in_disallowed_categories(name, url, categories) and categories:
             yield item
 
     def extract_sizes(self, response):
