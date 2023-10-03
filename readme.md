@@ -6,8 +6,6 @@ Welcome to the Scrapy Site Scraping with S3 Export project! This readme provides
 
 - [Project Overview](#project-overview)
 - [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
@@ -28,11 +26,3 @@ To run the scraper using Docker Compose, follow these steps:
    ```
 
 This will start the scraper in a Docker container with the Selenium configuration.
-
-## Contributing
-
-Contributions to this project are welcome. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/your-repository-link).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the code for your own purposes.
