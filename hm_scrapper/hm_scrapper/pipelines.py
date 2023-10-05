@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class HmScraperPipeline:
+class HmScrapperPipeline:
     def process_item(self, item, spider):
         return item

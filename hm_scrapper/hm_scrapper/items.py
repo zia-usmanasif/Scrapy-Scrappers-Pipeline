@@ -1,9 +1,7 @@
-from pydoc import cram
-from sre_parse import CATEGORIES
 import scrapy
 
 
-class HmScraperItem(scrapy.Item):
+class HmScrapperItem(scrapy.Item):
     url = scrapy.Field()  # string
     external_id = scrapy.Field()  # string
     categories = scrapy.Field()  # list

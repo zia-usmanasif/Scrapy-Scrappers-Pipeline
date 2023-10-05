@@ -12,6 +12,7 @@ services:
 
   asos_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/asos_scrapper
     command: "scrapy crawl asos -o output.json"
     volumes:
@@ -21,6 +22,7 @@ services:
 
   cuyana_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/cuyana_scrapper
     command: "scrapy crawl cuyana -o output.json"
     volumes:
@@ -30,6 +32,7 @@ services:
 
   everlane_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/everlane_scrapper
     command: "scrapy crawl everlane -o output.json"
     volumes:
@@ -39,6 +42,7 @@ services:
 
   farfetch_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/farfetch_scrapper
     command: "scrapy crawl farfetch -o output.json"
     volumes:
@@ -48,6 +52,7 @@ services:
 
   fashionnova_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/fashionnova_scrapper
     command: "scrapy crawl fashionnova -o output.json"
     volumes:
@@ -57,6 +62,7 @@ services:
 
   hm_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/hm_scrapper
     command: "scrapy crawl hm -o output.json"
     volumes:
@@ -66,6 +72,7 @@ services:
 
   madewell_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/madewell_scrapper
     command: "scrapy crawl madewell -o output.json"
     volumes:
@@ -75,6 +82,7 @@ services:
 
   ohpolly_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/ohpolly_scrapper
     command: "scrapy crawl ohpolly -o output.json"
     volumes:
@@ -84,6 +92,7 @@ services:
 
   princesspolly_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/princesspolly_scrapper
     command: "scrapy crawl princesspolly -o output.json"
     volumes:
@@ -93,6 +102,7 @@ services:
 
   sezane_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/sezane_scrapper
     command: "scrapy crawl sezane -o output.json"
     volumes:
@@ -102,6 +112,7 @@ services:
 
   thereformation_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/thereformation_scrapper
     command: "scrapy crawl thereformation -o output.json"
     volumes:
@@ -111,6 +122,7 @@ services:
 
   zara_scrapper:
     build: .
+    image: runain/scrapy-pipeline:scrappers-latest
     working_dir: /home/app/zara_scrapper
     command: "scrapy crawl zara -o output.json"
     volumes:
