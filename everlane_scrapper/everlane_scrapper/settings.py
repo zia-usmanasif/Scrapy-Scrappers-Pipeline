@@ -7,10 +7,12 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-import dotenv
+from dotenv import load_dotenv
 import os
+load_dotenv()
+
 BOT_NAME = "everlane_scrapper"
-dotenv.load_dotenv()
+
 SPIDER_MODULES = ["everlane_scrapper.spiders"]
 NEWSPIDER_MODULE = "everlane_scrapper.spiders"
 
@@ -64,6 +66,8 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+
 if os.environ.get("SCRAPY_ENV") == "production":
     ITEM_PIPELINES = {
         's3pipeline.S3Pipeline': 100,
@@ -76,7 +80,6 @@ if os.environ.get("SCRAPY_ENV") == "production":
     BUCKET_NAME = os.environ.get("BUCKET_NAME")
     if BUCKET_NAME:
         S3PIPELINE_URL = S3PIPELINE_URL.replace("bucket-name", BUCKET_NAME)
-
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

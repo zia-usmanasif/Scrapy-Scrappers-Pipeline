@@ -75,10 +75,9 @@ class HmSpider(scrapy.Spider):
         super().__init__(*a, **kw)
 
     def start_requests(self):
-        url = "https://www2.hm.com/en_us/productpage.1162938009.html"
-        # url = "https://www2.hm.com/en_us/productpage.1202953001.html"
+        url = "https://www2.hm.com/en_us/women/new-arrivals/clothes.html"
         signal.signal(signal.SIGINT, self.handle_interrupt)
-        yield scrapy.Request(url=url, callback=self.parse_product)
+        yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         total_products = response.css(
@@ -138,7 +137,7 @@ class HmSpider(scrapy.Spider):
             "hm-product-reviews-summary-w-c button span::text").getall()
         if no_reviews:
             no_reviews = re.findall("\d+", no_reviews[-1])
-            no_reviews = no_reviews[0] if no_reviews else ""
+            no_reviews = str(no_reviews[0]) if no_reviews else ""
         details_meta = response.css(
             "hm-product-accordions-w-c *::text").getall()
         details_meta = details+details_meta
